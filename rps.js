@@ -44,11 +44,7 @@ function compareMoves() {
   }
 }
 
-function playGame() {
-  for (i = 0; i < 5; i++) {
-    compareMoves();
-  }
-}
+
 
 playGame();
 
