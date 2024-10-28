@@ -9,33 +9,45 @@ function getCompMove() {
   return rps[randomNum];
 }
 
-function getUserMove() {
-  userInput = prompt("Choose Rock, Paper or Scissors");
+let userInput = "sdf";
 
-  return userInput;
-}
+let weps = document.querySelector(".weapons");
+
+weps.addEventListener("click", (e) => {
+  if (e.target.value == "rock") {
+    userInput = e.target.value;
+    console.log("User selected:", userInput);
+  } else if (e.target.value == "paper") {
+    userInput = e.target.value;
+    console.log("User selected:", userInput);
+  } else if (e.target.value == "scissor") {
+    userInput = e.target.value;
+    console.log("User selected:", userInput);
+  }
+});
 
 function compareMoves() {
-  let userMove = getUserMove();
+  let userMove = userInput;
   let compMove = getCompMove();
-
+  console.log(userMove);
+  console.log(compMove);
   if (
     (userMove == "rock" && compMove == "rock") ||
     (userMove == "paper" && compMove == "paper") ||
-    (userMove == "scissors" && compMove == "scissors")
+    (userMove == "scissor" && compMove == "scissor")
   ) {
     console.log("Its a tie! You chose the same weapon.");
   } else if (
-    (userMove == "rock" && compMove == "scissors") ||
+    (userMove == "rock" && compMove == "scissor") ||
     (userMove == "paper" && compMove == "rock") ||
-    (userMove == "scissors" && compMove == "paper")
+    (userMove == "scissor" && compMove == "paper")
   ) {
     console.log("You won! Your weapon is superior.");
     humanScore++;
   } else if (
     (userMove == "rock" && compMove == "paper") ||
-    (userMove == "paper" && compMove == "scissors") ||
-    (userMove == "scissors" && compMove == "rock")
+    (userMove == "paper" && compMove == "scissor") ||
+    (userMove == "scissor" && compMove == "rock")
   ) {
     console.log("You lost! Your weapon is weak.");
     computerScore++;
@@ -44,24 +56,26 @@ function compareMoves() {
   }
 }
 
-
+function playGame() {
+  compareMoves();
+}
 
 playGame();
 
-if (humanScore > computerScore) {
-  console.log(
-    "WINNER! Final score: You: " +
-      humanScore +
-      " - " +
-      "Computer: " +
-      computerScore
-  );
-} else {
-  console.log(
-    "LOSER! Final score: You: " +
-      humanScore +
-      " - " +
-      "Computer: " +
-      computerScore
-  );
-}
+// if (humanScore > computerScore) {
+//   console.log(
+//     "WINNER! Final score: You: " +
+//       humanScore +
+//       " - " +
+//       "Computer: " +
+//       computerScore
+//   );
+// } else {
+//   console.log(
+//     "LOSER! Final score: You: " +
+//       humanScore +
+//       " - " +
+//       "Computer: " +
+//       computerScore
+//   );
+// }
