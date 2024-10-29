@@ -16,11 +16,16 @@ weps.addEventListener("click", (e) => {
   const result = document.querySelector(".result");
   if (result.hasChildNodes()) {
     result.removeChild(result.firstChild);
+  }
 
-    if (e.target.value == "rock") {
-      userInput = e.target.value;
-    }
+  const score1 = document.querySelector(".score");
+  if (score1.hasChildNodes()) {
+    score1.removeChild(score1.firstChild);
+  }
 
+  if (e.target.value == "rock") {
+    userInput = e.target.value;
+    console.log(userInput);
     compareMoves();
   } else if (e.target.value == "paper") {
     userInput = e.target.value;
@@ -40,10 +45,17 @@ function compareMoves() {
     (userMove == "paper" && compMove == "paper") ||
     (userMove == "scissor" && compMove == "scissor")
   ) {
+    //result
     const result = document.querySelector(".result");
     const p = document.createElement("p");
     p.textContent = "You both picked the same weapon. Its a Tie!";
     result.appendChild(p);
+
+    //score
+    const score = document.querySelector(".score");
+    const span = document.createElement("span");
+    span.textContent = `Score: ${humanScore} ${computerScore} `;
+    score.appendChild(span);
   } else if (
     (userMove == "rock" && compMove == "scissor") ||
     (userMove == "paper" && compMove == "rock") ||
@@ -54,6 +66,11 @@ function compareMoves() {
     p.textContent = "Your weapon is stronger. Winner!";
     result.appendChild(p);
     humanScore++;
+    //score
+    const score = document.querySelector(".score");
+    const span = document.createElement("span");
+    span.textContent = `Score: ${humanScore} ${computerScore} `;
+    score.appendChild(span);
   } else if (
     (userMove == "rock" && compMove == "paper") ||
     (userMove == "paper" && compMove == "scissor") ||
@@ -63,26 +80,34 @@ function compareMoves() {
     const p = document.createElement("p");
     p.textContent = "Loser!";
     result.appendChild(p);
-    console.log("Your weapon is weak. You lost!");
     computerScore++;
+    //score
+    const score = document.querySelector(".score");
+    const span = document.createElement("span");
+    span.textContent = `Score: ${humanScore} ${computerScore} `;
+    score.appendChild(span);
   } else {
+  }
+  if (humanScore == 5) {
+    const h1 = document.querySelector(".h1");
+    h1.textContent = "YOU WON!";
+
+    let newWep = weps.cloneNode(true);
+    weps.parentNode.replaceChild(newWep, weps);
+    weps = newWep;
+    // humanScore = 0;
+  } else if (computerScore == 5) {
+    const h1 = document.querySelector(".h1");
+    h1.textContent = "COMP WINS!";
+    let newWep = weps.cloneNode(true);
+    weps.parentNode.replaceChild(newWep, weps);
+    weps = newWep;
+    // computerScore = 0;
   }
 }
 
-// if (humanScore > computerScore) {
-//   console.log(
-//     "WINNER! Final score: You: " +
-//       humanScore +
-//       " - " +
-//       "Computer: " +
-//       computerScore
-//   );
-// } else {
-//   console.log(
-//     "LOSER! Final score: You: " +
-//       humanScore +
-//       " - " +
-//       "Computer: " +
-//       computerScore
-//   );
-// }
+// const playAgain = document.querySelector(".playAgain");
+
+// playAgain.addEventListener("click", (e) => {
+//   console.log(e.target);
+// });
