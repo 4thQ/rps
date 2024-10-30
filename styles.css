@@ -49,6 +49,32 @@ body {
   align-items: center;
   justify-content: space-around;
 }
+
+.weapons #rock:hover {
+  cursor: pointer;
+  background-color: aqua;
+  transition: transform 0.2s ease, background-color 0.1s ease;
+  transform: scale(1.1);
+}
+
+.weapons #paper:hover {
+  cursor: pointer;
+  background-color: rgb(98, 41, 172);
+  transition: transform 0.2s ease, background-color 0.1s ease;
+  transform: scale(1.1);
+}
+.weapons #scissor:hover {
+  cursor: pointer;
+  background-color: rgb(236, 215, 19);
+  transition: transform 0.2s ease, background-color 0.1s ease;
+  transform: scale(1.1);
+}
+.weapons #playAgain:hover {
+  cursor: pointer;
+  background-color: rgb(255, 0, 0);
+  transition: transform 0.2s ease, background-color 0.1s ease;
+  transform: scale(1.1);
+}
 .weapons * {
   background-color: black;
   color: white;
