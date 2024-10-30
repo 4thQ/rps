@@ -51,12 +51,13 @@ body {
 .weapons * {
   background-color: black;
   color: white;
-
-  height: 46px;
+  font-size: 60px;
+  height: 100px;
   width: 219px;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   font-weight: bold;
+  padding-bottom: 10px;
 }
 
 .container3 {
