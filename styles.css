@@ -127,7 +127,7 @@ body {
 
 .weapons #playAgain {
   display: block;
-  flex-basis: 60%;
+  flex-basis: 80%;
 
   margin: 10px;
 }
