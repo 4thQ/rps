@@ -69,7 +69,7 @@ function compareMoves() {
     //result
     const result = document.querySelector(".result");
     const p = document.createElement("p");
-    p.textContent = "You both picked the same weapon. Its a Tie!";
+    p.textContent = "You both picked the same weapon :o ";
     result.appendChild(p);
 
     //score
@@ -84,7 +84,7 @@ function compareMoves() {
   ) {
     const result = document.querySelector(".result");
     const p = document.createElement("p");
-    p.textContent = "Your weapon is stronger. Winner!";
+    p.textContent = "Your weapon was superior >:";
     result.appendChild(p);
     humanScore++;
     //score
@@ -99,7 +99,7 @@ function compareMoves() {
   ) {
     const result = document.querySelector(".result");
     const p = document.createElement("p");
-    p.textContent = "Loser!";
+    p.textContent = "Your weapon was too weak :(";
     result.appendChild(p);
     computerScore++;
     //score
